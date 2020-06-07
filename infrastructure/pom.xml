@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>integration</artifactId>
+    <artifactId>infrastructure</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

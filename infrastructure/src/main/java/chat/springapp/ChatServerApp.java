@@ -1,6 +1,6 @@
 package chat.springapp;
 
-import chat.service.OpenSocketConnection;
+import chat.service.SocketConnectionInteractor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -24,7 +24,7 @@ public class ChatServerApp {
         SpringApplication springApp = new SpringApplication(ChatServerApp.class);
 
         ApplicationContext context = springApp.run(args);
-        OpenSocketConnection openServerSocket = context.getBean(OpenSocketConnection.class);
+        SocketConnectionInteractor openServerSocket = context.getBean(SocketConnectionInteractor.class);
         openServerSocket.open();
     }
 }
