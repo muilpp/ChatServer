@@ -16,4 +16,20 @@ public class Message {
     public static Message create(String from, String to, String content) {
         return new Message(from, to, content, System.currentTimeMillis());
     }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public long getDate() {
+        return date;
+    }
 }
