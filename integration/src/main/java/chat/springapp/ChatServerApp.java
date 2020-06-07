@@ -1,14 +1,15 @@
 package chat.springapp;
 
-
-import chat.service.CreateSocketServer;
-import org.springframework.beans.factory.annotation.Autowired;
+import chat.service.OpenSocketConnection;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+
+import java.util.logging.Logger;
 
 @SpringBootApplication(exclude = {
         DataSourceAutoConfiguration.class,
@@ -17,13 +18,13 @@ import org.springframework.context.annotation.ComponentScan;
 })
 @ComponentScan(basePackages = {"chat"})
 public class ChatServerApp {
-    @Autowired
-    static CreateSocketServer createSocketServer;
+    private static final Logger LOGGER = Logger.getLogger(ChatServerApp.class.getName());
 
     public static void main(String[] args) {
-        SpringApplication.run(ChatServerApp.class);
-        System.out.println("Entro!");
-        CreateSocketServer createSocketServer = new CreateSocketServer();
-        createSocketServer.create();
+        SpringApplication springApp = new SpringApplication(ChatServerApp.class);
+
+        ApplicationContext context = springApp.run(args);
+        OpenSocketConnection openServerSocket = context.getBean(OpenSocketConnection.class);
+        openServerSocket.open();
     }
 }
