@@ -1,4 +1,4 @@
-package chat.usecases;
+package chat.port.message;
 
 
 public interface ConnectionOpener {

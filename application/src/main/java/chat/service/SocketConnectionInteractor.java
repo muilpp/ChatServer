@@ -5,7 +5,7 @@ import chat.entity.User;
 import chat.port.message.MessageReceiver;
 import chat.port.message.MessageSender;
 import chat.port.user.UserRepository;
-import chat.usecases.ConnectionOpener;
+import chat.port.message.ConnectionOpener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
